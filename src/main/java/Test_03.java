@@ -7,6 +7,7 @@ public class Test_03 {
         ListNode node4 = new ListNode(4);
         ListNode node5 = new ListNode(5);
         ListNode node6 = new ListNode(6);
+        ListNode node8 = new ListNode(8);
 
         node1.setNext(node2) ;
         node2.setNext(node3);
