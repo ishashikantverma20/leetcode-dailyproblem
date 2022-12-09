@@ -1,13 +1,30 @@
-public class Test_03 {
 
-    public static void main(String[] args) {
+/**
+ * Given the head of a singly linked list, group all the nodes with odd indices together followed by the nodes with even indices, and return the reordered list.
+ *
+ * The first node is considered odd, and the second node is even, and so on.
+ *
+ * Note that the relative order inside both the even and odd groups should remain as it was in the input.
+ *
+ * You must solve the problem in O(1) extra space complexity and O(n) time complexity.
+ *
+ * Example 1:
+ * Input: head = [1,2,3,4,5]
+ * Output: [1,3,5,2,4]
+ *
+ * Example 2:
+ * Input: head = [2,1,3,5,6,4,7]
+ * Output: [2,3,6,7,1,5,4]
+ */
+public  class OddEvenLinkedList {
+
+    public  void main(String[] args) {
         ListNode node1 = new ListNode(1);
         ListNode node2 = new ListNode(2);
         ListNode node3 = new ListNode(3);
         ListNode node4 = new ListNode(4);
         ListNode node5 = new ListNode(5);
-        ListNode node6 = new ListNode(6);
-        ListNode node8 = new ListNode(8);
+       
 
         node1.setNext(node2) ;
         node2.setNext(node3);
@@ -16,7 +33,7 @@ public class Test_03 {
 
         ListNode head = node1;
 
-        ListNode res = oddEvenList(new ListNode());
+        ListNode res = oddEvenList(head);
 
         while (res != null) {
             System.out.println("res " + res.val);
@@ -32,7 +49,9 @@ public class Test_03 {
 
         int count = 1;
 
-        //oddList = new ListNode();
+       if (head == null) {
+           return null;
+       }
 
         while(head != null) {
 
@@ -46,16 +65,19 @@ public class Test_03 {
             count++;
         }
 
+        // will iterate till oddlist end
         ListNode ptr = oddList;
         while(ptr.next != null) {
             ptr = ptr.next;
         }
 
+        // append evenlist in the end of oddlist
         ptr.next = evenList;
 
         return oddList;
     }
 
+    // this method will insert element is last of list
     public static ListNode insert(ListNode root, int data) {
 
         if (root == null) {
@@ -75,7 +97,7 @@ public class Test_03 {
 
 }
 
- class ListNode {
+  class ListNode {
       int val;
       ListNode next;
       ListNode() {}
